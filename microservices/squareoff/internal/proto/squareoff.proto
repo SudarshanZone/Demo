@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package squareoff;
+
+option go_package = "squareoff/generated";
+
+service SquareOffService {
+  rpc SquareOffOrder (SquareOffRequest) returns (SquareOffResponse);
+}
+
+message SquareOffRequest {
+  string source_flag = 1;
+  string stock_code = 2;
+  string exchange_code = 3;
+  string quantity = 4;
+  string price = 5;
+  string action = 6;
+  string order_type = 7;
+  string validity = 8;
+  string stoploss_price = 9;
+  string disclosed_quantity = 10;
+  string protection_percentage = 11;
+  string settlement_id = 12;
+  string margin_amount = 13;
+  string open_quantity = 14;
+  string cover_quantity = 15;
+  string product_type = 16;
+  string expiry_date = 17;
+  string right = 18;
+  string strike_price = 19;
+  string validity_date = 20;
+  string alias_name = 21;
+  string trade_password = 22;
+}
+
+message SquareOffResponse {
+  string status = 1;
+  string message = 2;
+}

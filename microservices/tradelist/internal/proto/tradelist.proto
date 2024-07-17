@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package tradelist;
+
+option go_package = "tradelist/generated";
+
+service TradeListService {
+  rpc TradeListOrder (TradeListRequest) returns (TradeListResponse);
+}
+
+message TradeListRequest {
+  string exchange_code = 1;
+  string product_type = 2;
+  string action = 3;
+  string stock_code = 4;
+}
+
+message TradeListResponse {
+  repeated Trade trade_list = 1;
+
+  message Trade {
+    string from_date = 1;
+    string to_date = 2;
+    string exchange_code = 3;
+    string product_type = 4;
+    string action = 5;
+    string stock_code = 6;
+  }
+}
